@@ -1,1 +1,14 @@
-Raw Data.
+## Dataset
+
+Source:
+San Antonio Open Data Portal
+
+Dataset:
+SAPD Offenses
+
+Note:
+The full dataset contains several hundred thousand records.
+For repository size limits, a sampled dataset (50,000 rows) is included.
+
+The full dataset can be downloaded from:
+https://data.sanantonio.gov
