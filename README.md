@@ -8,7 +8,7 @@ The final dashboard allows users to explore crime patterns by time, location, an
 ---
 
 ## Dashboard Preview
-![San Antonio Crime Dashboard](images/Dashboard_Preview-twb2.jpg)
+![San Antonio Crime Dashboard](visuals/Dashboard_Preview-twb2.jpg)
 
 ---
 
