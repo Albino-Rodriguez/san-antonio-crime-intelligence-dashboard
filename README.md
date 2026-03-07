@@ -65,3 +65,113 @@ SELECT
     Zip_Code AS zip_code,
     DATETIME(DateTime) AS incident_datetime
 FROM crime_raw;
+```
+
+Time features were added to support trend analysis:
+
+```sql
+ALTER TABLE crime_clean ADD COLUMN year INTEGER;
+ALTER TABLE crime_clean ADD COLUMN month INTEGER;
+ALTER TABLE crime_clean ADD COLUMN day_of_week INTEGER;
+
+UPDATE crime_clean
+SET
+    year = CAST(strftime('%Y', report_date) AS INTEGER),
+    month = CAST(strftime('%m', report_date) AS INTEGER),
+    day_of_week = CAST(strftime('%w', report_date) AS INTEGER);
+```
+
+---
+
+## Dashboard Features
+
+The Tableau dashboard provides multiple analytical views:
+
+### Crime Incidents by Month
+Shows how crime activity fluctuates throughout the year.
+
+### Top 10 Crime Types
+Ranks the most common crime types reported in San Antonio.
+
+### Incidents by Service Area
+Highlights which police service areas experience the highest crime volume.
+
+### Crime Group Distribution
+Shows broader categories of criminal activity.
+
+### Crime Hotspot Map
+A choropleth map visualizing crime intensity by ZIP code.
+
+### Key Performance Indicators (KPIs)
+
+- Total Incidents: 49,999
+- Crime Types: 31
+- ZIP Codes with reported crime: 65
+
+Interactive filters allow users to explore the data by:
+
+- Year
+- Service Area
+- Crime Against category
+
+---
+
+## Key Insights
+
+- Aggravated Assault is the most frequently reported crime type in the dataset.
+- Western and southern service areas show the highest crime volumes.
+- Crime levels remain relatively consistent throughout the year with slight seasonal variation.
+- Central ZIP codes exhibit higher concentrations of reported incidents.
+
+---
+
+## Skills Demonstrated
+
+- Data cleaning and transformation using SQL
+- Feature engineering for time-based analysis
+- Exploratory data analysis
+- Data visualization and dashboard design
+- Geographic data visualization
+- Interactive dashboard development
+- Data storytelling and insight communication
+
+---
+
+## Repository Structure
+
+```
+san-antonio-crime-dashboard
+│
+├── data
+│   └── sapd_offenses_sample.csv
+│
+├── sql
+│   └── crime_cleaning.sql
+│
+├── tableau
+│   └── san_antonio_crime_dashboard.twbx
+│
+├── images
+│   └── dashboard_preview.png
+│
+└── README.md
+```
+
+---
+
+## Future Improvements
+
+Potential future enhancements include:
+
+- Adding time-of-day crime analysis
+- Incorporating population data to calculate crime rates
+- Adding predictive crime trend modeling
+- Expanding geographic analysis to census tract level
+
+---
+
+## Author
+
+Albino Rodriguez  
+MBA – Data Analytics  
+Information Systems Graduate – University of Texas Rio Grande Valley
